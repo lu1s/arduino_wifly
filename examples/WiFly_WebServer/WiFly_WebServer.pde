@@ -46,6 +46,37 @@ void loop() {
           client.println();
           
           // output the value of each analog input pin
+          
+          /*
+          
+            OK ... AQUI ES DONDE VA TODO EL DESMADRE
+            
+            TODO:
+              code:
+              
+                int vals[3] = {analogRead(0), analogRead(1), analogRead(2)};
+                client.print("{success:true,data:{x:");
+                client.print(vals[0]);
+                client.print(",y:");
+                client.print(vals[1]);
+                client.print(",z:");
+                client.print(vals[2]);
+                client.print("}}");
+                
+              actions:
+              
+                Encontrar el correcto json encoding ... y var si enviar mejor Content-Type: application/json
+                
+                Esta pagina seria la default, pero debemos crear otras paginas que acepten gets...
+                
+                Y ya lo mejor seria hacer autenticacion REST o alguna autenticacion chafa
+                
+                Y ya lo mas chingon seria encriptar todo mediante un certificado ssl
+                
+               
+          
+          */
+          
           for (int i = 0; i < 6; i++) {
             client.print("analog input ");
             client.print(i);
