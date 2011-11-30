@@ -27,13 +27,43 @@ WiFlySerial WiFly(2,3); // ( rx, tx)
 */
 int initSettings(){
 	Serial.println("stablishing setting commands...");
+	
+	/*
+	Set the authentication method.
+	
+	0: Open (Default)
+	1: WEP-128
+	2: WPA1
+	3: Mixed WPA1 & WPA2-PSK
+	4: WPA2-PSK
+	5: Not Used
+	6: Adhoc, Join any Adhoc network
+	8: WPE-64
+	
+	Refer to the WiFly Shield Breakout Manual for more information.
+
+	*/
     WiFly.SendCommand("set wlan auth 3","AOK");
+
+	// set the wify channel number or 0 for channel scanning
     WiFly.SendCommand("set wlan channel 5","AOK");
-    WiFly.SendCommand("set wlan ext_antenna 1","AOK");
-	WiFly.SendCommand("set wlan phrase yourpassphrase","AOK"); // your passphrase
-    WiFly.SendCommand("set wlan ssid yourssid","AOK"); // your ssid
+    
+	// if you are using an external antenna put 1, otherwise put 0
+	WiFly.SendCommand("set wlan ext_antenna 1","AOK");
+
+	// your passphrase
+	WiFly.SendCommand("set wlan phrase yourpassphrase","AOK");
+	
+	// your ssid
+    WiFly.SendCommand("set wlan ssid yourssid","AOK");
+
+	// set the local port to use as the server
     WiFly.SendCommand("set ip localport 80","AOK");
+
+	// specify to connect automatically
     WiFly.SendCommand("set wlan join 1","AOK");
+
+	// save the settings in the internal WiFly memory
     WiFly.SendCommand("save","AOK");
 }
 
