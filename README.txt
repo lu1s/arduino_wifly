@@ -1,7 +1,8 @@
 Name: WiFly WebServer
 Author: Luis Pulido
 
-This source was taken from the Sparkfun libraries and was modified/adapted for specific needs. I recommend to fork shaselton repo if you want to develop something with the wifly.
+This source was taken from the Sparkfun libraries and was modified/adapted for specific needs.
+I recommend to fork shaselton repo if you want to develop something with the wifly.
 
 WiFly Webserver is a code for Arduino and the WiFly GSX Breakout
 module that makes a simple webserver.
